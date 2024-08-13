@@ -1,0 +1,2 @@
+class NoCodeFoundException(Exception):
+    pass

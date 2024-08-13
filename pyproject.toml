@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "crllm"
+version = "0.1.0"
+description = "Get code reviews from llms"
+authors = ["Lukas Rump"]
+readme = "README.md"
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+langchain = "^0.3.1"
+rich = "^13.8.1"
+gitpython = "^3.1.43"
+langchain-ollama = "^0.2.0"
+argparse = "^1.4.0"
+toml = "^0.10.2"
+deepmerge = "^2.0"
+langchain-openai = "^0.2.1"
+langchain-huggingface = "^0.1.0"
+coverage = "^7.6.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+black = "^24.8.0"
+pylint = "^3.3.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+crllm = "crllm.cli:cli"

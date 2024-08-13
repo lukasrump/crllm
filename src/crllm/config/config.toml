@@ -1,0 +1,20 @@
+[project]
+description = ""
+
+[crllm]
+loader = "file"
+provider = "ollama"
+git_main_branch = "main"
+git_changed_lines = true
+
+[model]
+model = "llama3.1"
+
+[prompt]
+template = """
+You are a senior Software Engineer. Please do code review for the following code. If the code is okay just say so and don't provide any suggestions. Rate it on a skala from 1 to 10.
+Keep it short and only mention things that are necessary and realizable. 
+Just mention suggestions for improvement.
+Use bullet points for your comments. 
+Do not create code examples.
+"""
