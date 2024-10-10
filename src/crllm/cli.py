@@ -13,15 +13,29 @@ def cli():
         description="Get Code Reviews from large language models."
     )
 
-    parser.add_argument("input_file", help="Path to the source code file")
+    parser.add_argument("input", help="Path to the sources")
     parser.add_argument(
-        "-c", help="Path to the config file", default="crllm_config.toml"
+        "-c", "--config", help="Path to the config file", default="crllm_config.toml"
+    )
+    parser.add_argument(
+        "-l",
+        "--loader",
+        help="Loader to use",
+        required=False,
+        choices=["file", "git", "git_compare"],
     )
 
     args = parser.parse_args()
-    config_service.get_config(args.c)
 
-    app(args.input_file)
+    config = {"crllm": {}}
+
+    if args.loader:
+        config["crllm"]["loader"] = args.loader
+
+    config_service.set_config_path(args.config)
+    config_service.override_config(config)
+
+    app(args.input)
 
 
 if __name__ == "__main__":
