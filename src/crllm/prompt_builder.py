@@ -1,14 +1,11 @@
 import logging
 from langchain_core.prompts import ChatPromptTemplate
-from crllm.config.config_service import ConfigService
+from crllm.config.config_service import config_service
 
 
 class PromptBuilder:
-    def __init__(self, configService=ConfigService()) -> None:
-        self.configService = configService
-
     def build(self):
-        config = self.configService.getConfig()
+        config = config_service.get_config()
 
         logging.debug(config["prompt"])
 

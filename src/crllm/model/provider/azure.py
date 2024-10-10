@@ -3,5 +3,5 @@ from crllm.model.model import Model
 
 
 class AzureModel(Model):
-    def _getModel(self, model_config):
+    def _get_model(self, model_config):
         return AzureChatOpenAI(**model_config)

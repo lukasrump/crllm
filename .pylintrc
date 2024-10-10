@@ -28,7 +28,6 @@ enable=
 
 disable=
     attribute-defined-outside-init,
-    invalid-name,
     missing-docstring,
     protected-access,
     too-few-public-methods,

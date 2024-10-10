@@ -5,7 +5,7 @@ from crllm.config.config_service import config_service
 
 
 def git(path):
-    config = config_service.getConfig()
+    config = config_service.get_config()
     use_changed_lines = config["crllm"]["git_changed_lines"]
 
     repo = Repo(path)
@@ -17,14 +17,14 @@ def git(path):
     code = ""
 
     if not use_changed_lines:
-        changedFiles = [item.a_path for item in diff if item.a_path is not None]
+        changed_files = [item.a_path for item in diff if item.a_path is not None]
 
-        logging.info("Found changed files: %s", changedFiles)
+        logging.info("Found changed files: %s", changed_files)
 
-        for file in changedFiles:
-            with open(file, encoding="UTF8") as f:
+        for file in changed_files:
+            with open(file, encoding="UTF8") as file:
                 code += "\nFile name: " + file + "\n"
-                code += f.read()
+                code += file.read()
     else:
         for line in diff:
             code += str(line) + "\n"

@@ -10,7 +10,7 @@ class ConfigService:
     configPath = os.path.join(CONFIG_DIR, "config.toml")
     config = None
 
-    def getConfig(self, path="./crllm_config.toml"):
+    def get_config(self, path="./crllm_config.toml"):
         if self.config:
             return self.config
 

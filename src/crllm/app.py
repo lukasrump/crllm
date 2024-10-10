@@ -9,18 +9,18 @@ from crllm.prompt_builder import PromptBuilder
 def app(path: str):
     logging.info("Reading %s", path)
 
-    code = code_loader.loader.getCode(path)
+    code = code_loader.loader.get_code(path)
 
-    promptBuilder = PromptBuilder()
-    prompt = promptBuilder.build()
+    prompt_builder = PromptBuilder()
+    prompt = prompt_builder.build()
 
-    modelFactory = ModelFactory()
+    model_factory = ModelFactory()
 
-    model = modelFactory.getModel()
+    model = model_factory.get_model()
 
     result = model.generate(prompt, {"code": code})
 
-    md = Markdown(result)
+    markdown = Markdown(result)
 
     console = Console()
-    console.print(md)
+    console.print(markdown)

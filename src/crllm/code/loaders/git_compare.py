@@ -6,7 +6,7 @@ def git_compare(path):
     repo = Repo(path)
 
     current_branch = repo.active_branch.name
-    config = config_service.getConfig()
+    config = config_service.get_config()
     main_branch = config["crllm"]["git_main_branch"]
 
     diff = repo.git.diff(f"{main_branch}...{current_branch}", unified=0)

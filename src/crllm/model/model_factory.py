@@ -4,8 +4,8 @@ from crllm.model.provider import providers
 
 
 class ModelFactory:
-    def getModel(self) -> Model:
-        config = config_service.getConfig()
+    def get_model(self) -> Model:
+        config = config_service.get_config()
         provider = config["crllm"]["provider"]
 
         return providers[provider]()
