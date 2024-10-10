@@ -33,7 +33,8 @@ disable=
     too-few-public-methods,
     cyclic-import,
     import-error,
-    no-name-in-module
+    no-name-in-module,
+    redefined-outer-name,
 
 
 [REPORTS]
