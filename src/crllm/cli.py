@@ -19,7 +19,7 @@ def cli():
     )
 
     args = parser.parse_args()
-    config_service.getConfig(args.c)
+    config_service.get_config(args.c)
 
     app(args.input_file)
 

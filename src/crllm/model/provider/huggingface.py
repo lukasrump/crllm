@@ -3,7 +3,7 @@ from crllm.model.model import Model
 
 
 class HuggingFaceModel(Model):
-    def _getModel(self, model_config):
+    def _get_model(self, model_config):
         llm = HuggingFaceEndpoint(**model_config)
 
         return ChatHuggingFace(llm=llm)

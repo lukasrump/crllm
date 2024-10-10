@@ -7,12 +7,12 @@ class CodeLoader:
     def __init__(self) -> None:
         self.loaders = {}
 
-    def getCode(self, path):
-        config = config_service.getConfig()
+    def get_code(self, path):
+        config = config_service.get_config()
 
-        loaderName = config["crllm"]["loader"]
+        loader_name = config["crllm"]["loader"]
 
-        result = loaders.loaders[loaderName](path)
+        result = loaders.loaders[loader_name](path)
         logging.debug(result)
         return result
 
