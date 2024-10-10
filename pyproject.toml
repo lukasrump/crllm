@@ -5,6 +5,7 @@ description = "Get code reviews from llms"
 authors = ["Lukas Rump"]
 readme = "README.md"
 license = "MIT"
+repository = "https://github.com/lukasrump/crllm"
 
 [tool.poetry.dependencies]
 python = "^3.10"
