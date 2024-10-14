@@ -1,6 +1,7 @@
 import argparse
 import logging
 import os
+from crllm.init_project import init_project
 from crllm.app import app
 from crllm.config.config_service import config_service
 
@@ -17,12 +18,17 @@ def cli():
     parser.add_argument(
         "-c", "--config", help="Path to the config file", default="crllm_config.toml"
     )
+
     parser.add_argument(
         "-l",
         "--loader",
         help="Loader to use",
         required=False,
         choices=["file", "git", "git_compare"],
+    )
+
+    parser.add_argument(
+        "-i", "--init", help="Initialize the config file", action="store_true"
     )
 
     args = parser.parse_args()
@@ -34,6 +40,10 @@ def cli():
 
     config_service.set_config_path(args.config)
     config_service.override_config(config)
+
+    if args.init:
+        init_project(args.input)
+        return
 
     app(args.input)
 
