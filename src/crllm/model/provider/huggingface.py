@@ -7,3 +7,7 @@ class HuggingFaceModel(Model):
         llm = HuggingFaceEndpoint(**model_config)
 
         return ChatHuggingFace(llm=llm)
+
+    @staticmethod
+    def get_required_config():
+        return ["repo_id", "task"]

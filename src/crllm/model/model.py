@@ -20,3 +20,7 @@ class Model(ABC):
     @abstractmethod
     def _get_model(self, model_config):
         pass
+
+    @staticmethod
+    def get_required_config():
+        return []
