@@ -32,9 +32,19 @@ If you want to run the modells locally otherwise you will need the corresponding
 pipx install git+https://github.com/lukasrump/crllm.git
 ```
 
-## 🌐 Configuration
-CRLLM supports multiple backends for LLM code reviews. You can configure it by adding an configuration file `crllm_config.toml` in the root of your project.
+### Install from PyPI
+```sh
+pipx install crllm
+```
 
+## 🌐 Configuration
+CRLLM supports multiple backends for LLM code reviews. You can configure it by adding an configuration file `crllm_config.toml` in the root of your project. To initialize your project you can use
+
+```bash
+crllm -i .
+```
+
+This command guides you through the most important settings.
 This TOML configuration file is splitted in four main sections:
 
 ### [project]
