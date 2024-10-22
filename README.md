@@ -2,7 +2,7 @@
 
 **Effortlessly Get Code Reviews from Large Language Models!**
 
-CRLLM is a powerful command-line tool that enables developers to get code reviews from state-of-the-art Large Language Models (LLMs). Whether you want to use Ollama for locally running LLMs or connect to cloud services like ChatGPT, Hugging Face, and Azure, DevReview has you covered. Improve your code quality, catch potential bugs, and receive AI-driven suggestions to enhance your development workflow. Get recommendations on best practices, bug-prone areas, and potential refactoring.
+CRLLM is a powerful command-line tool that enables developers to get code reviews from state-of-the-art Large Language Models (LLMs). Whether you want to use Ollama for locally running LLMs or connect to cloud services like ChatGPT, Hugging Face, and Azure, CRLLM has you covered. Improve your code quality, catch potential bugs, and receive AI-driven suggestions to enhance your development workflow. Get recommendations on best practices, bug-prone areas, and potential refactoring.
 Learn from the suggestions how to improve your code, gaining new insights and techniques. Reduce the need for back-and-forth during human code reviews by catching more issues upfront.
 
 ## 🚀 Features
@@ -87,7 +87,7 @@ AZURE_OPENAI_ENDPOINT=https://your-endpoint.openai.azure.com
 - **`template`**: Override the prompt template that is used (optional).
 
 ## ✨Usage
-DevReview CLI is designed to be easy to use right from your terminal. Below are some examples of how you can leverage the tool.
+CRLLM is designed to be easy to use right from your terminal. Below are some examples of how you can leverage the tool.
 
 To perform a code review for a file or GIT repository run:
 ```sh
