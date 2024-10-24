@@ -14,6 +14,7 @@ class Model(ABC):
         result = llm_chain.invoke(prompt_args)
 
         logging.debug(result)
+        logging.info(result.usage_metadata)
 
         return result.content
 

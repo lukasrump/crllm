@@ -31,9 +31,17 @@ def cli():
         "-i", "--init", help="Initialize the config file", action="store_true"
     )
 
+    parser.add_argument(
+        "-o",
+        "--output",
+        help="Output file for the generated code review",
+        required=False,
+        default="",
+    )
+
     args = parser.parse_args()
 
-    config = {"crllm": {}}
+    config = {"crllm": {"output": args.output}}
 
     if args.loader:
         config["crllm"]["loader"] = args.loader

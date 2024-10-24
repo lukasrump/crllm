@@ -6,6 +6,7 @@ loader = "file"
 provider = "ollama"
 git_main_branch = "main"
 git_changed_lines = true
+output = ""
 
 [model]
 model = "llama3.1"
