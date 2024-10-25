@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "crllm"
-version = "0.2.0"
+version = "0.3.0"
 description = "Provides AI-powered code reviews using local or cloud-based Large Language Models (LLMs) to help developers improve code quality and catch bugs efficiently."
 authors = ["Lukas Rump"]
 readme = "README.md"
