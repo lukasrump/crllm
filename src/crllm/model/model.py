@@ -21,11 +21,11 @@ class Model(ABC):
         if config["rag"]["enabled"]:
             self.add_rag_context(prompt_args, rag_config)
 
-        logging.debug(
-            prompt_template.format(
-                context=prompt_args["context"], code=prompt_args["code"]
+            logging.debug(
+                prompt_template.format(
+                    context=prompt_args["context"], code=prompt_args["code"]
+                )
             )
-        )
 
         result = chain.invoke(prompt_args)
 

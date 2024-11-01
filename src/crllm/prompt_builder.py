@@ -9,20 +9,26 @@ class PromptBuilder:
 
         logging.debug(config["prompt"])
 
-        prompt = ChatPromptTemplate.from_messages(
-            [
-                ("system", config["prompt"]["template"]),
-                (
-                    "system",
-                    """
+        messages = [
+            ("system", config["prompt"]["template"]),
+            ("human", "Do code review for the following code changes: \n {code}"),
+        ]
+
+        if config["rag"]["enabled"]:
+            self._insert_rag_message(messages)
+
+        return ChatPromptTemplate.from_messages(messages)
+
+    def _insert_rag_message(self, messages):
+        messages.insert(
+            1,
+            (
+                "system",
+                """
 This code could be relevant to understand the changes:
 <context>
     {context}
 </context>
-                 """,
-                ),
-                ("human", "Do code review for the following code changes: \n {code}"),
-            ]
+                    """,
+            ),
         )
-
-        return prompt
