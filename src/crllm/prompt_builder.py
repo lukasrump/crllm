@@ -12,7 +12,16 @@ class PromptBuilder:
         prompt = ChatPromptTemplate.from_messages(
             [
                 ("system", config["prompt"]["template"]),
-                ("human", "Do code review for the following code: \n {code}"),
+                (
+                    "system",
+                    """
+This code could be relevant to understand the changes:
+<context>
+    {context}
+</context>
+                 """,
+                ),
+                ("human", "Do code review for the following code changes: \n {code}"),
             ]
         )
 

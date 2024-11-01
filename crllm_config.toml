@@ -2,3 +2,6 @@
 loader = "git"
 model = "llama3.2"
 git_changed_lines = true
+
+[rag]
+enabled = true
