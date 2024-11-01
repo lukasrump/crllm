@@ -11,6 +11,13 @@ output = ""
 [model]
 model = "llama3.1"
 
+[rag]
+enabled = false
+embedding_model = "all-minilm"
+src_path = "./"
+src_glob = "**/*.py"
+
+
 [prompt]
 template = """
 You are a senior Software Engineer. Please do code review for the following code. If the code is okay just say so and don't provide any suggestions. Rate it on a skala from 1 to 10.
