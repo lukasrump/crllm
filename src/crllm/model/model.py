@@ -39,13 +39,12 @@ class Model(ABC):
             path=rag_config["src_path"],
             glob=rag_config["src_glob"],
             parser=LanguageParser(),
+            show_progress=True,
         )
 
         docs = loader.load()
 
-        embedding_config = {
-            "model": rag_config["embedding_model"],
-        }
+        embedding_config = {"model": rag_config["embedding_model"]}
 
         vectorstore = FAISS.from_documents(
             documents=docs, embedding=self._get_embeddings(embedding_config)
