@@ -1,11 +1,13 @@
 [tool.poetry]
 name = "crllm"
-version = "0.3.0"
+version = "0.4.0"
 description = "Provides AI-powered code reviews using local or cloud-based Large Language Models (LLMs) to help developers improve code quality and catch bugs efficiently."
 authors = ["Lukas Rump"]
 readme = "README.md"
 license = "MIT"
 repository = "https://github.com/lukasrump/crllm"
+homepage = "https://lukasrump.github.io/crllm/"
+keywords = ["code review", "AI", "LLM", "static analysis", "cli"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -22,6 +24,8 @@ coverage = "^7.6.1"
 inquirer = "^3.4.0"
 langchain-community = "^0.3.3"
 faiss-cpu = "^1.9.0"
+tree-sitter = "^0.21.3"
+tree-sitter-languages = "^1.10.2"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.3"

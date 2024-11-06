@@ -1,6 +1,6 @@
 [crllm]
 loader = "git"
-model = "llama3.2"
+model = "deepseek-coder-v2:latest"
 git_changed_lines = true
 
 [rag]
