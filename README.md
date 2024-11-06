@@ -103,3 +103,15 @@ To perform a code review for a file or GIT repository run:
 ```sh
 crllm path/to/your/codefile.py
 ```
+
+## Enabling RAG Support
+
+To enhance code reviews with source context, enable RAG (Retrieval-Augmented Generation) in `crllm_config.toml`:
+
+```toml
+[rag]
+enabled = true
+embedding_model = "all-minilm"      # Specify the embedding model
+src_path = "./"                     # Define the root path of your source code
+src_glob = "**/*.py"                # Use glob patterns to match source files (e.g., Python files)
+```
