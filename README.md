@@ -104,7 +104,7 @@ To perform a code review for a file or GIT repository run:
 crllm path/to/your/codefile.py
 ```
 
-## Enabling RAG Support
+### Enabling RAG Support
 
 To enhance code reviews with source context, enable RAG (Retrieval-Augmented Generation) in `crllm_config.toml`:
 
@@ -115,3 +115,6 @@ embedding_model = "all-minilm"      # Specify the embedding model
 src_path = "./"                     # Define the root path of your source code
 src_glob = "**/*.py"                # Use glob patterns to match source files (e.g., Python files)
 ```
+
+### Ignore files
+CRLLM supports a `.crllm_ignore` file to exclude specific files and directories from code reviews. This is similar to `.gitignore` but specific to CRLLM's code review process.
