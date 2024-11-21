@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 import logging
+import os
 from langchain_community.document_loaders.generic import GenericLoader
 from langchain_community.document_loaders.parsers import LanguageParser
 from langchain_community.vectorstores import FAISS
@@ -35,6 +36,27 @@ class Model(ABC):
         return result.content
 
     def add_rag_context(self, prompt_args, rag_config):
+        vectorstore = self._get_vector_store(rag_config)
+
+        def format_docs(docs):
+            return "\n\n".join(doc.page_content for doc in docs)
+
+        prompt_args["context"] = format_docs(
+            vectorstore.similarity_search(prompt_args["code"], 3)
+        )
+
+    def _get_vector_store(self, rag_config):
+        embedding_config = {"model": rag_config["embedding_model"]}
+
+        if rag_config["cache_enabled"]:
+            if os.path.exists(rag_config["cache_path"]):
+                vectorstore = FAISS.load_local(
+                    rag_config["cache_path"],
+                    embeddings=self._get_embeddings(embedding_config),
+                    allow_dangerous_deserialization=True,
+                )
+                return vectorstore
+
         loader = GenericLoader.from_filesystem(
             path=rag_config["src_path"],
             glob=rag_config["src_glob"],
@@ -44,18 +66,15 @@ class Model(ABC):
 
         docs = loader.load()
 
-        embedding_config = {"model": rag_config["embedding_model"]}
-
         vectorstore = FAISS.from_documents(
             documents=docs, embedding=self._get_embeddings(embedding_config)
         )
 
-        def format_docs(docs):
-            return "\n\n".join(doc.page_content for doc in docs)
+        if rag_config["cache_enabled"]:
+            os.makedirs(os.path.dirname(rag_config["cache_path"]), exist_ok=True)
+            vectorstore.save_local(rag_config["cache_path"])
 
-        prompt_args["context"] = format_docs(
-            vectorstore.similarity_search(prompt_args["code"], 3)
-        )
+        return vectorstore
 
     @abstractmethod
     def _get_model(self, model_config):

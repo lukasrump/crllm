@@ -1,7 +1,8 @@
 [crllm]
 loader = "git"
-model = "deepseek-coder-v2:latest"
+model = "qwen2.5-coder:32b"
 git_changed_lines = true
 
 [rag]
 enabled = true
+cache_enabled = true
