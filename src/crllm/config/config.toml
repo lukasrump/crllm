@@ -16,6 +16,8 @@ enabled = false
 embedding_model = "all-minilm"
 src_path = "./"
 src_glob = "**/*.py"
+cache_enabled = false
+cache_path = ".crllm/index"
 
 
 [prompt]
